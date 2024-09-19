@@ -1,18 +1,23 @@
 const express = require("express");
 const dotenv = require("dotenv");
+
 const auth_routes = require("./routes/auth_routes");
 const connectToMongoDB = require("./db/connectToMongoDB");
-dotenv.config();
 
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.get("/api", (req, res) => {
-  res.send("Hello World!");
-});
+dotenv.config();
+
+app.use(express.json()); // to parse JSON request bodies
 
 app.use("/api/auth", auth_routes);
+
+// app.get("/", (req, res) => {
+//   // http:localhost:5000/api/auth
+//   res.send("Hello World!");
+// });
 
 app.listen(PORT, () => {
   connectToMongoDB();
