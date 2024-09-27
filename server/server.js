@@ -1,11 +1,12 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 
 const auth_routes = require("./routes/auth_routes");
 const message_routes = require("./routes/message_routes");
-const connectToMongoDB = require("./db/connectToMongoDB");
+const user_routes = require("./routes/user_routes");
 
-const cookieParser = require("cookie-parser");
+const connectToMongoDB = require("./db/connectToMongoDB");
 
 const app = express();
 
@@ -18,6 +19,8 @@ app.use(cookieParser());
 
 app.use("/api/auth", auth_routes);
 app.use(`/api/messages`, message_routes);
+app.use(`/api/users`, user_routes);
+
 // app.get("/", (req, res) => {
 //   // http:localhost:5000/api/auth
 //   res.send("Hello World!");
