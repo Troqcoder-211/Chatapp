@@ -4,6 +4,6 @@ const { protectRoute } = require("../middleware/protectRoute");
 
 const router = express.Router();
 
-router.get("/:id", protectRoute, getUsersForSidebar);
+router.get("/", protectRoute, getUsersForSidebar);
 
 module.exports = router;

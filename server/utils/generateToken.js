@@ -6,7 +6,7 @@ const generateTokenSetCookie = (userId, res) => {
   });
 
   res.cookie("jwt", token, {
-    maxAge: 15 * 24 * 60 * 60 * 1000, //MS
+    maxAge: 24 * 60 * 60 * 1000, //MS  1 ngày
     httpOnly: true, // ngăn chặn các cuộc tấn công XSS tấn công kịch bản chéo trang
     sameSite: "strict", // Tấn công CSRF tấn công giả mạo yêu cầu chéo trang web
     secure: process.env.NODE_ENV !== "development",
