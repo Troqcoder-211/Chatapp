@@ -15,11 +15,11 @@ const PORT = process.env.PORT || 3000;
 
 dotenv.config();
 
-app.use(express.json()); // to parse JSON request bodies
+app.use(express.json());
 app.use(cookieParser());
 const corsOptions = {
   origin: "http://localhost:3000",
-  credentials: true, //access-control-allow-credentials:true
+  credentials: true,
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
